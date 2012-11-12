@@ -1,5 +1,8 @@
 package com.devoxx.vaadin.view;
 
+import static com.vaadin.ui.Alignment.MIDDLE_RIGHT;
+
+import com.devoxx.vaadin.behavior.LogoutBehavior;
 import com.devoxx.vaadin.behavior.SayHelloBehavior;
 import com.vaadin.server.VaadinServiceSession;
 import com.vaadin.ui.Button;
@@ -20,10 +23,19 @@ public class MainView extends CustomComponent {
 
 		HorizontalLayout bar = new HorizontalLayout();
 
+		bar.setWidth("100%");
+
 		Label loginLabel = new Label(VaadinServiceSession.getCurrent()
 				.getAttribute(String.class));
 
 		bar.addComponent(loginLabel);
+
+		Button logoutButton = new Button("Logout");
+
+		bar.addComponent(logoutButton);
+		bar.setComponentAlignment(logoutButton, MIDDLE_RIGHT);
+
+		logoutButton.addClickListener(new LogoutBehavior());
 
 		layout.addComponent(bar);
 
