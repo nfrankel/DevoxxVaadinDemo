@@ -12,9 +12,14 @@ public class MainView extends CustomComponent {
         Layout layout = new VerticalLayout();
 
         HorizontalLayout bar = new HorizontalLayout();
+        bar.setWidth("100%");
         Label label = new Label();
         label.setValue(VaadinServiceSession.getCurrent().getAttribute(String.class));
         bar.addComponent(label);
+        Button logoutButton = new Button("logout");
+        bar.addComponent(logoutButton);
+        bar.setComponentAlignment(logoutButton, Alignment.TOP_RIGHT);
+        logoutButton.addClickListener(new LogoutBehaviour());
         layout.addComponent(bar);
 
         final Label hello = new Label("Hello");
