@@ -3,15 +3,18 @@ package com.devoxx.vaadin.view;
 import com.devoxx.vaadin.behavior.SayHelloBehavior;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CustomComponent;
-import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.VerticalLayout;
 
 public class MainView extends CustomComponent {
 
 	public MainView() {
 
-		HorizontalLayout layout = new HorizontalLayout();
+		VerticalLayout layout = new VerticalLayout();
+
+		layout.setSpacing(true);
+		layout.setMargin(true);
 
 		final TextField field = new TextField();
 
