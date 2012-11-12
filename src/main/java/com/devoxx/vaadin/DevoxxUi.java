@@ -1,16 +1,14 @@
 package com.devoxx.vaadin;
 
-import com.devoxx.vaadin.view.LoginView;
-import com.vaadin.annotations.PreserveOnRefresh;
+import com.devoxx.vaadin.view.MainView;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
 
-@PreserveOnRefresh
 public class DevoxxUi extends UI {
 
 	@Override
 	protected void init(VaadinRequest request) {
 
-		setContent(new LoginView());
+		setContent(new MainView());
 	}
 }
