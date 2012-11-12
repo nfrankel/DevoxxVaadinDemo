@@ -1,9 +1,7 @@
 package fr.sewatech.devoxx.vaadin;
 
-import com.vaadin.ui.Button;
-import com.vaadin.ui.PasswordField;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
+import com.vaadin.server.VaadinServiceSession;
+import com.vaadin.ui.*;
 
 public class LoginBehaviour implements Button.ClickListener {
 
@@ -17,6 +15,12 @@ public class LoginBehaviour implements Button.ClickListener {
 
     @Override
     public void buttonClick(Button.ClickEvent clickEvent) {
-        UI.getCurrent().setContent(new MainView());
+        String login = loginField.getValue();
+        if (login.isEmpty()) {
+            Notification.show("Failed", Notification.Type.ERROR_MESSAGE);
+        }  else {
+            VaadinServiceSession.getCurrent().setAttribute(String.class, login);
+            UI.getCurrent().setContent(new MainView());
+        }
     }
 }
